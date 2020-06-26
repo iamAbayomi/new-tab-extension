@@ -15,5 +15,8 @@
     "scripts": [
       "background.js"
     ]
+  },
+  "chrome_url_overrides": {
+      "newtab": "tab/tab.html"
   }
 }
