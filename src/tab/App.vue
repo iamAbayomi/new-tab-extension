@@ -49,6 +49,7 @@ body {
 
 .joke {
   max-width: 800px;
-  font-size: 32px;
+  font-size: 28px;
+  margin: auto;
 }
 </style>
