@@ -1,5 +1,12 @@
 <template>
-    <p>{{ message }}</p>
+  <div>
+     <div v-if="loading" > 
+         <p>Loading... </p>
+     </div>
+     <div v-else>
+         <p class="joke">{{ joke }}</p>
+     </div>    
+  </div>
 </template>
 
 <script>
