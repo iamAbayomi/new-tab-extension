@@ -5,6 +5,13 @@
      </div>
      <div v-else>
          <p class="joke">{{ joke }}</p>
+         
+         <button @click="likeJoke" :disabled="likeButtonDisablbed"> Like Joke</button>
+         <button @click="logJokes" class="btn"> Log Jokes </button>
+         <button @click="clearStorage" class="btn"> Clear Storage </button>
+
+     </div>    
+     
      </div>    
   </div>
 </template>
@@ -17,9 +24,24 @@ export default {
         return {
             loading: true,
             joke: "",
+            likeButtonDisabled: false
+
         }
     },
-
+    methods: {
+        likeJoke(){
+            chrome.storage.local.get("jokes", (res) => {
+                if(!res.jokes) res.jokes = [];
+                res.jokes.push(this.jokes);
+                chrome.storage.local.set(res);
+                this.likeButtonDisabled = true;
+            })
+        },
+        logJokes(){
+            chrome.storage.local.get("jokes", )
+        }
+    }
+    ,
     mounted() {
         axios.get(
             "https://icanhazdadjoke.com/",
