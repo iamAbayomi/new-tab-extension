@@ -1,8 +1,7 @@
 import Vue from 'vue';
-import Ap from './App';
-import { render } from 'ejs';
+import App from './App';
 
 new Vue({
-    el: '#app',
-    render: h=> h(App)
-})
+  el: '#app',
+  render: h => h(App)
+});
