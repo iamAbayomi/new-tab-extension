@@ -34,7 +34,21 @@ export default {
 </script>
 
 <style scoped>
-p{
-    font-size: 20px;
+body {
+  height: 98vh;
+  text-align: center;
+  color: #353638;
+  font-size: 29px;
+  line-height: 30px;
+  font-family: Merriweather,Georgia,serif;
+  background-size: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.joke {
+  max-width: 800px;
+  font-size: 32px;
 }
 </style>
