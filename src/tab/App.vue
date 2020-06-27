@@ -6,14 +6,14 @@
      <div v-else>
          <p class="joke">{{ joke }}</p>
          
-         <button @click="likeJoke" :disabled="likeButtonDisablbed"> Like Joke</button>
+         <button @click="likeJoke" :disabled="likeButtonDisabled"> Like Joke</button>
          <button @click="logJokes" class="btn"> Log Jokes </button>
          <button @click="clearStorage" class="btn"> Clear Storage </button>
 
      </div>    
      
      </div>    
-  </div>
+  </div> 
 </template>
 
 <script>
@@ -32,13 +32,18 @@ export default {
         likeJoke(){
             chrome.storage.local.get("jokes", (res) => {
                 if(!res.jokes) res.jokes = [];
-                res.jokes.push(this.jokes);
+                res.jokes.push(this.joke);
                 chrome.storage.local.set(res);
                 this.likeButtonDisabled = true;
             })
         },
         logJokes(){
-            chrome.storage.local.get("jokes", )
+            chrome.storage.local.get("jokes", (res)=>{
+                if(res.jokes) res.jokes.map( joke => console.log(joke));
+            } );
+        },
+        clearStorage(){
+            chrome.storage.local.clear();
         }
     }
     ,
