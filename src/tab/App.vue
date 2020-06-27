@@ -10,11 +10,25 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     data(){
         return {
-            message: "My new tab page"
+            loading: true,
+            joke: "",
         }
+    },
+
+    mounted() {
+        axios.get(
+            "https://icanhazdadjoke.com/",
+            { 'headers': {'Accept' : 'application/json'}}
+        )
+        .then( res => {
+            this.joke = res.data.joke;
+            this.loading = false;
+        })
     }
 }
 </script>
